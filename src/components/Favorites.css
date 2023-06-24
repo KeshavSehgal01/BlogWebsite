@@ -50,3 +50,10 @@
     flex: 0 0 calc(50% - 10px);
   }
 }
+
+/* Add the following media query to adjust the flex layout for smaller screens */
+@media (max-width: 576px) {
+  .card {
+    flex: 0 0 100%;
+  }
+}

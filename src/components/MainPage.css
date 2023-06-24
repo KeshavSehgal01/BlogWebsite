@@ -62,6 +62,7 @@
   }
 }
 
+/* Add the following media query to adjust the layout for smaller screens */
 @media (max-width: 576px) {
   .card {
     flex: 0 0 100%;
