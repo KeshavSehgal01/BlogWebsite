@@ -1,4 +1,4 @@
-.blog {
+/* .blog {
   text-decoration: none;
 }
 
@@ -9,8 +9,8 @@
 }
 
 .blogCard {
-  padding: 15px; /* JUST TO LOOK COOL */
-  border: 1px solid #eee; /* JUST TO LOOK COOL */
+  padding: 15px;
+  border: 1px solid #eee;
   box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px;
   transition: all 0.3s ease-in-out;
 }
@@ -22,4 +22,48 @@
 .card {
   flex: 0 0 calc(33.33% - 10px);
   margin-bottom: 20px;
+} */
+
+.blog {
+  text-decoration: none;
+}
+
+.mainPage {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.blogCard {
+  padding: 15px;
+  border: 1px solid #eee;
+  box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px;
+  transition: all 0.3s ease-in-out;
+}
+
+.blogCard:hover {
+  box-shadow: rgba(0, 0, 0, 0.22) 0px 19px 43px;
+  transform: translate3d(0px, -1px, 0px);
+}
+
+.card {
+  flex: 0 0 calc(33.33% - 10px);
+  margin-bottom: 20px;
+}
+
+/* Add the following media queries to adjust the layout for smaller screens */
+@media (max-width: 768px) {
+  .mainPage {
+    justify-content: center;
+  }
+
+  .card {
+    flex: 0 0 calc(50% - 10px);
+  }
+}
+
+@media (max-width: 576px) {
+  .card {
+    flex: 0 0 100%;
+  }
 }
