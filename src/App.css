@@ -1,0 +1,9 @@
+.navbar-expand {
+  justify-content: space-between !important;
+}
+.search {
+  display: flex;
+}
+.mr-sm-2 {
+  margin-right: 10% !important;
+}
