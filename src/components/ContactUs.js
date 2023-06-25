@@ -4,7 +4,13 @@ import Card from "react-bootstrap/Card";
 import contact from "./contact.jpg";
 const ContactUs = () => {
   return (
-    <div style={{ padding: "15px", display: "flex", justifyContent: "center" }}>
+    <div
+      style={{
+        padding: "15px",
+        display: "flex",
+        justifyContent: "center",
+        flexWrap: "wrap",
+      }}>
       <Card style={{ width: "20rem" }}>
         <Card.Img variant="top" src={contact} />
         <Card.Body>
