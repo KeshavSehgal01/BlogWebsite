@@ -1,28 +1,9 @@
-/* .navbar-expand {
-  justify-content: space-between !important;
-}
-.search {
-  display: flex;
-}
-.mr-sm-2 {
-  margin-right: 10% !important;
-} */
-
 .navbar-expand {
   justify-content: space-between !important;
 }
-
 .search {
   display: flex;
 }
-
 .mr-sm-2 {
   margin-right: 10% !important;
-}
-
-/* Add the following media query to adjust the margin-right for smaller screens */
-@media (max-width: 768px) {
-  .mr-sm-2 {
-    margin-right: 0 !important;
-  }
 }

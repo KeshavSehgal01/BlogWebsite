@@ -52,7 +52,7 @@ const FavoritesPage = ({ favorites, removeFromFavorites }) => {
   };
 
   return (
-    <div>
+    <div style={{ padding: "15px" }}>
       <h1>Favorite Blog Posts</h1>
       <div className="favorites">
         {currentPosts.length > 0 ? (

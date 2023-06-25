@@ -60,7 +60,7 @@ const BlogPostPage = ({ addToFavorites, removeFromFavorites, comments }) => {
   };
 
   return (
-    <div>
+    <div style={{ padding: "15px" }}>
       {post ? (
         <div>
           <h2>{post.title}</h2>

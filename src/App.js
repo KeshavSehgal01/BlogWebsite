@@ -11,7 +11,7 @@ import Button from "react-bootstrap/Button";
 import AboutUs from "./components/AboutUs";
 import ContactUs from "./components/ContactUs";
 import "./App.css";
-
+import Container from "react-bootstrap/Container";
 const App = () => {
   const [favorites, setFavorites] = useState(() => {
     const storedFavorites = localStorage.getItem("favorites");
@@ -71,43 +71,53 @@ const App = () => {
 
   return (
     <div>
-      <Navbar bg="dark" variant="dark" className="navBar">
-        <Navbar.Brand>Blog Website</Navbar.Brand>
-        <Nav className="mr-auto">
-          <li>
-            <Link to="/">
-              <Button variant="dark">Home</Button>
-            </Link>
-          </li>
-          <li>
-            <Link to="/favorites">
-              <Button variant="dark">Favorites</Button>
-            </Link>
-          </li>
-          <li>
-            <Link to="/AboutUs">
-              <Button variant="dark">About Us</Button>
-            </Link>
-          </li>
-          <li>
-            <Link to="/ContactUs">
-              <Button variant="dark">Contact Us</Button>
-            </Link>
-          </li>
-        </Nav>
-        <div className="search">
-          <Form inline>
-            <FormControl
-              type="text"
-              placeholder="Search"
-              className="mr-sm-2"
-              value={searchTerm}
-              onChange={handleSearch}
-            />
-          </Form>
-        </div>
+      <Navbar
+        expand="lg"
+        className="bg-body-tertiary"
+        bg="dark"
+        data-bs-theme="dark">
+        <Container fluid>
+          <Navbar.Brand>Blog Website</Navbar.Brand>
+          <Navbar.Toggle aria-controls="navbarScroll" />
+          <Navbar.Collapse id="navbarScroll">
+            <Nav
+              className="me-auto my-2 my-lg-0"
+              style={{ maxHeight: "100px" }}
+              navbarScroll>
+              <Link to="/">
+                <Button variant="outline-light" style={{ border: "0px" }}>
+                  Home
+                </Button>
+              </Link>
+              <Link to="/favorites">
+                <Button variant="outline-light" style={{ border: "0px" }}>
+                  Favorites
+                </Button>
+              </Link>
+              <Link to="/AboutUs">
+                <Button variant="outline-light" style={{ border: "0px" }}>
+                  About us
+                </Button>
+              </Link>
+              <Link to="/ContactUs">
+                <Button variant="outline-light" style={{ border: "0px" }}>
+                  Contact Us
+                </Button>
+              </Link>
+            </Nav>
+            <Form className="d-flex">
+              <Form.Control
+                type="text"
+                placeholder="Search"
+                className="me-2"
+                aria-label="Search"
+                value={searchTerm}
+                onChange={handleSearch}
+              />
+            </Form>
+          </Navbar.Collapse>
+        </Container>
       </Navbar>
-
       <Routes>
         <Route
           path="/"
