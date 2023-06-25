@@ -15,12 +15,18 @@ const BlogPostPage = ({ addToFavorites, removeFromFavorites, comments }) => {
   const [author, setAuthor] = useState(null);
   const [postComments, setPostComments] = useState([]);
   const [newComment, setNewComment] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
+    setLoading(true);
+    setError(null);
+
     axios
       .get(`https://jsonplaceholder.typicode.com/posts/${postId}`)
       .then((response) => setPost(response.data))
-      .catch((error) => console.error(error));
+      .catch((error) => setError(error))
+      .finally(() => setLoading(false));
 
     axios
       .get(`https://jsonplaceholder.typicode.com/comments?postId=${postId}`)
@@ -29,7 +35,7 @@ const BlogPostPage = ({ addToFavorites, removeFromFavorites, comments }) => {
         const existingComments = comments[postId] || [];
         setPostComments([...existingComments, ...apiComments]);
       })
-      .catch((error) => console.error(error));
+      .catch((error) => setError(error));
   }, [postId, comments]);
 
   useEffect(() => {
@@ -37,7 +43,7 @@ const BlogPostPage = ({ addToFavorites, removeFromFavorites, comments }) => {
       axios
         .get(`https://jsonplaceholder.typicode.com/users/${post.userId}`)
         .then((response) => setAuthor(response.data))
-        .catch((error) => console.error(error));
+        .catch((error) => setError(error));
     }
   }, [post]);
 
@@ -58,6 +64,14 @@ const BlogPostPage = ({ addToFavorites, removeFromFavorites, comments }) => {
       Math.random().toString(36).substring(2, 15)
     );
   };
+
+  if (loading) {
+    return <p>Loading post...</p>;
+  }
+
+  if (error) {
+    return <p>Error: {error.message}</p>;
+  }
 
   return (
     <div style={{ padding: "15px" }}>
@@ -115,7 +129,7 @@ const BlogPostPage = ({ addToFavorites, removeFromFavorites, comments }) => {
           </Form>
         </div>
       ) : (
-        <p>Loading post...</p>
+        <p>No post found.</p>
       )}
     </div>
   );

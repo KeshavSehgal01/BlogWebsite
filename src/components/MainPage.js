@@ -81,43 +81,47 @@ const MainPage = ({
       <h1 style={{ textAlign: "center" }}>Blog Posts</h1>
 
       <div className="mainPage">
-        {currentPosts.map((post) => (
-          <div key={post.id}>
-            <Link to={`/post/${post.id}`} style={{ textDecoration: "none" }}>
-              <Card style={{ width: "18rem" }} className="blogCard">
-                <Card.Img variant="top" src={blog} />
-                <Card.Body>
-                  <Card.Title>{truncateText(post.title, 15)}</Card.Title>
-                  <Card.Text>
-                    <p>{truncateText(post.body, 50)}</p>
-                    <p style={{ fontWeight: "bold" }}>
-                      Author: {authors[post.userId]?.name}
-                    </p>
-                  </Card.Text>
-                  {favorites.some((favorite) => favorite.id === post.id) ? (
-                    <Button
-                      variant="primary"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        removeFromFavorites(post.id);
-                      }}>
-                      Remove from Favorites
-                    </Button>
-                  ) : (
-                    <Button
-                      variant="primary"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        addToFavorites(post);
-                      }}>
-                      Add to Favorites
-                    </Button>
-                  )}
-                </Card.Body>
-              </Card>
-            </Link>
-          </div>
-        ))}
+        {currentPosts.length ? (
+          currentPosts.map((post) => (
+            <div key={post.id}>
+              <Link to={`/post/${post.id}`} style={{ textDecoration: "none" }}>
+                <Card style={{ width: "18rem" }} className="blogCard">
+                  <Card.Img variant="top" src={blog} />
+                  <Card.Body>
+                    <Card.Title>{truncateText(post.title, 15)}</Card.Title>
+                    <Card.Text>
+                      <p>{truncateText(post.body, 50)}</p>
+                      <p style={{ fontWeight: "bold" }}>
+                        Author: {authors[post.userId]?.name}
+                      </p>
+                    </Card.Text>
+                    {favorites.some((favorite) => favorite.id === post.id) ? (
+                      <Button
+                        variant="primary"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          removeFromFavorites(post.id);
+                        }}>
+                        Remove from Favorites
+                      </Button>
+                    ) : (
+                      <Button
+                        variant="primary"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          addToFavorites(post);
+                        }}>
+                        Add to Favorites
+                      </Button>
+                    )}
+                  </Card.Body>
+                </Card>
+              </Link>
+            </div>
+          ))
+        ) : (
+          <h2>"Blog Not Found"</h2>
+        )}
       </div>
 
       <div>

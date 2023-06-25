@@ -53,7 +53,7 @@ const FavoritesPage = ({ favorites, removeFromFavorites }) => {
 
   return (
     <div style={{ padding: "15px" }}>
-      <h1>Favorite Blog Posts</h1>
+      <h1 style={{ textAlign: "center" }}>Favorite Blog Posts</h1>
       <div className="favorites">
         {currentPosts.length > 0 ? (
           currentPosts.map((post) => (
