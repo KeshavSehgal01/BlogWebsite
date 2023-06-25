@@ -2,7 +2,6 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import contact from "./contact.jpg";
-import "./Contact.css";
 const ContactUs = () => {
   return (
     <div>
