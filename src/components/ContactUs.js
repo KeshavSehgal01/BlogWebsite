@@ -2,30 +2,22 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import contact from "./contact.jpg";
+import "./Contact.css";
 const ContactUs = () => {
   return (
-    <div
-      style={{
-        padding: "15px",
-        display: "flex",
-        justifyContent: "center",
-        flexWrap: "wrap",
-      }}>
-      <Card style={{ width: "20rem" }}>
-        <Card.Img variant="top" src={contact} />
-        <Card.Body>
-          <Card.Title>
-            <h2>Contact Us</h2>
-          </Card.Title>
-          <Card.Text>
-            <b>
-              <p>Name: Keshav Sehgal</p>
-              <p>Phone: 91+ 9041019303</p>
-              <p> Email: keshavsehgal27@gmail.com</p>
-            </b>
-          </Card.Text>
-        </Card.Body>
-      </Card>
+    <div>
+      <h1 style={{ display: "flex", justifyContent: "center" }}>
+        <p>ContactUs</p>
+      </h1>
+      <h4 style={{ display: "flex", justifyContent: "center" }}>
+        <p>Name: Keshav Sehgal</p>
+      </h4>
+      <h4 style={{ display: "flex", justifyContent: "center" }}>
+        <p>Email: keshavsehgal27@gmail.com</p>
+      </h4>
+      <h4 style={{ display: "flex", justifyContent: "center" }}>
+        <p>Phone Number: 91+ 9041019303</p>
+      </h4>
     </div>
   );
 };
