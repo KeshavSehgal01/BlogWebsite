@@ -78,7 +78,7 @@ const MainPage = ({
 
   return (
     <div>
-      <h1>Blog Posts</h1>
+      <h1 style={{ textAlign: "center" }}>Blog Posts</h1>
 
       <div className="mainPage">
         {currentPosts.map((post) => (
